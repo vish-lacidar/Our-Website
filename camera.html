@@ -92,13 +92,13 @@
             }
          }
 
+         document.querySelector("#paintandquest-video-mp4").play();
 
          const id = setInterval(() => {
             y += 0.008;
             if (y >= 0.6) {
                clearInterval(id);
-               document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-               document.querySelector("#paintandquest-video-mp4").play();
+
                portfolioLeftButton.setAttribute("visible", true);
                portfolioRightButton.setAttribute("visible", true);
                portfolioLeftButton.addEventListener('click', () => {
@@ -302,11 +302,11 @@
          </a-camera>
 
          <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
-            <a-entity visible=false id="portfolio-panel" position="0 0 -0.02">
+            <a-entity visible=false id="portfolio-panel" position="0 0 -0.05">
                <a-text value="Happy Valentines Day Mahal" color="white" align="center" width="2"
                   position="0 0.4 0"></a-text>
                <a-entity id="portfolio-item0">
-                  <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552"
+                  <a-video id="paintandquest-video-link" src="#paintandquest-video-mp4" webkit-playsinline playsinline width="1" height="0.552"
                      position="0 0 0"></a-video>
                </a-entity>
                <a-entity id="portfolio-item1" visible=false>
