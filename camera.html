@@ -91,13 +91,14 @@
                document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
             }
          }
-         document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-         document.querySelector("#paintandquest-video-mp4").play();
+
 
          const id = setInterval(() => {
             y += 0.008;
             if (y >= 0.6) {
                clearInterval(id);
+               document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
+               document.querySelector("#paintandquest-video-mp4").play();
                portfolioLeftButton.setAttribute("visible", true);
                portfolioRightButton.setAttribute("visible", true);
                portfolioLeftButton.addEventListener('click', () => {
@@ -286,14 +287,11 @@
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/right.png" />
             <img id="paintandquest-preview"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest-preview.png" />
-            <video id="paintandquest-video-mp4" autoplay="false" loop="true"
-               src="./assets/baguio.mp4"></video>
+            <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./assets/baguio.mp4"></video>
             <video id="paintandquest-video-webm" autoplay="false" loop="true"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.webm"></video>
-            <img id="coffeemachine-preview"
-               src="./assets/img/1.jpeg" />
-            <img id="peak-preview"
-               src="./assets/img/2.jpg" />
+            <img id="coffeemachine-preview" src="./assets/img/1.jpeg" />
+            <img id="peak-preview" src="./assets/img/2.jpg" />
 
             <a-asset-item id="avatarModel"
                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
@@ -305,7 +303,8 @@
 
          <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0">
             <a-entity visible=false id="portfolio-panel" position="0 0 -0.01">
-               <a-text value="Happy Valentines Day Mahal" color="white" font="Creattion-Demo" align="center" width="2" position="0 0.4 0"></a-text>
+               <a-text value="Happy Valentines Day Mahal" color="white" font="Creattion-Demo" align="center" width="2"
+                  position="0 0.4 0"></a-text>
                <a-entity id="portfolio-item0">
                   <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552"
                      position="0 0 0"></a-video>
