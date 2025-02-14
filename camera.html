@@ -117,13 +117,13 @@
          }, 600);
 
          const showPortfolioItem = (item) => {
-            for (let i = 0; i <= 2; i++) {
+            for (let i = 0; i <= 6; i++) {
                document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
             }
          }
 
          leftButton.addEventListener('click', () => {
-            currentItem = (currentItem + 1) % 3;
+            currentItem = (currentItem + 1) % 7;
             showPortfolioItem(currentItem);
          });
          let openHeart = false;
@@ -150,7 +150,7 @@
             }
          });
          rightButton.addEventListener('click', () => {
-            currentItem = (currentItem - 1 + 3) % 3;
+            currentItem = (currentItem - 1 + 7) % 7;
             showPortfolioItem(currentItem);
          });
 
