@@ -110,19 +110,6 @@
                   showPortfolioItem(currentItem);
                });
 
-               paintandquestPreviewButton.addEventListener('click', () => {
-                  paintandquestPreviewButton.setAttribute("visible", false);
-                  const testVideo = document.createElement("video");
-                  const canplayWebm = testVideo.canPlayType('video/webm; codecs="vp8, vorbis"');
-                  if (canplayWebm == "") {
-                     document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
-                     document.querySelector("#paintandquest-video-mp4").play();
-                  } else {
-                     document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-webm");
-                     document.querySelector("#paintandquest-video-webm").play();
-                  }
-               });
-
                setTimeout(() => {
                   done();
                }, 500);
@@ -325,9 +312,9 @@
                   </a-image>
                </a-entity>
 
-               <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.7 0 0"
+               <a-image visible=false id="portfolio-left-button" class="clickable" src="#icon-left" position="-0.6 0 0"
                   height="0.15" width="0.15"></a-image>
-               <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.7 0 0"
+               <a-image visible=false id="portfolio-right-button" class="clickable" src="#icon-right" position="0.6 0 0"
                   height="0.15" width="0.15"></a-image>
             </a-entity>
 
