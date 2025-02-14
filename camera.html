@@ -226,7 +226,7 @@
                   clearInterval(intervalID);
                   done();
                }
-               document.querySelector(id).setAttribute("position", x + " 0 -0.01");
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
          } else if (position == "right") {
             const intervalID = setInterval(() => {
@@ -235,7 +235,7 @@
                   clearInterval(intervalID);
                   done();
                }
-               document.querySelector(id).setAttribute("position", x + " 0 -0.01");
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
          } else if (position == "hide") {
             document.querySelector(id).setAttribute("visible", false);
