@@ -91,6 +91,9 @@
                document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
             }
          }
+         document.querySelector("#paintandquest-video-link").setAttribute("src", "#paintandquest-video-mp4");
+         document.querySelector("#paintandquest-video-mp4").play();
+
          const id = setInterval(() => {
             y += 0.008;
             if (y >= 0.6) {
@@ -283,13 +286,13 @@
             <img id="paintandquest-preview"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest-preview.png" />
             <video id="paintandquest-video-mp4" autoplay="false" loop="true"
-               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.mp4"></video>
+               src="./assets/baguio.mp4"></video>
             <video id="paintandquest-video-webm" autoplay="false" loop="true"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.webm"></video>
             <img id="coffeemachine-preview"
-               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/coffeemachine-preview.png" />
+               src="./assets/img/1.jpeg" />
             <img id="peak-preview"
-               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/peak-preview.png" />
+               src="./assets/img/2.jpg" />
 
             <a-asset-item id="avatarModel"
                src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
@@ -305,9 +308,6 @@
                <a-entity id="portfolio-item0">
                   <a-video id="paintandquest-video-link" webkit-playsinline playsinline width="1" height="0.552"
                      position="0 0 0"></a-video>
-                  <a-image id="paintandquest-preview-button" class="clickable" src="#paintandquest-preview"
-                     alpha-test="0.5" position="0 0 0" height="0.552" width="1">
-                  </a-image>
                </a-entity>
                <a-entity id="portfolio-item1" visible=false>
                   <a-image class="clickable" src="#coffeemachine-preview" alpha-test="0.5" position="0 0 0"
