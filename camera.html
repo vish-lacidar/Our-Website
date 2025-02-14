@@ -28,7 +28,7 @@
 
          let currentTab = '';
          webButton.addEventListener('click', function (evt) {
-            if (currentTab === 'web') {
+            if (currentTab == 'web') {
                text.setAttribute("visible", false);
                currentTab = '';
                return;
@@ -38,7 +38,7 @@
             currentTab = 'web';
          });
          emailButton.addEventListener('click', function (evt) {
-            if (currentTab === 'email') {
+            if (currentTab == 'email') {
                text.setAttribute("visible", false);
                currentTab = '';
                return;
@@ -48,7 +48,7 @@
             currentTab = 'email';
          });
          profileButton.addEventListener('click', function (evt) {
-            if (currentTab === 'profile') {
+            if (currentTab == 'profile') {
                text.setAttribute("visible", false);
                currentTab = '';
                return;
@@ -58,7 +58,7 @@
             currentTab = 'profile';
          });
          locationButton.addEventListener('click', function (evt) {
-            if (currentTab === 'location') {
+            if (currentTab == 'location') {
                text.setAttribute("visible", false);
                currentTab = '';
                return;
@@ -79,7 +79,6 @@
          const portfolio = document.querySelector("#portfolio-panel");
          const portfolioLeftButton = document.querySelector("#portfolio-left-button");
          const portfolioRightButton = document.querySelector("#portfolio-right-button");
-         const paintandquestPreviewButton = document.querySelector("#paintandquest-preview-button");
 
          let y = 0;
          let currentItem = 0;
