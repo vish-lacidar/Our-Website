@@ -150,8 +150,8 @@
 
    <style>
       @font-face {
-        font-family: "Creattion";
-        src: url('assets/Creattion-Demo.otf');
+         font-family: "Creattion";
+         src: url('assets/Creattion-Demo.otf');
       }
 
       body {
@@ -280,8 +280,7 @@
             <img id="coffeemachine-preview" src="./assets/img/1.jpeg" />
             <img id="peak-preview" src="./assets/img/2.jpeg" />
 
-            <a-asset-item id="heartModel"
-               src="./assets/models/heart.gltf"></a-asset-item>
+            <a-asset-item id="heartModel" src="./assets/models/heart.gltf"></a-asset-item>
          </a-assets>
 
          <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
@@ -293,8 +292,8 @@
                <a-text value="Happy Valentines Day Mahal" color="white" font="Creattion" align="center" width="2"
                   position="0 0.4 0"></a-text>
                <a-entity id="portfolio-item0">
-                  <a-video id="paintandquest-video-link" src="#paintandquest-video-mp4" webkit-playsinline playsinline width="1" height="0.552"
-                     position="0 0 0"></a-video>
+                  <a-video id="paintandquest-video-link" src="#paintandquest-video-mp4" webkit-playsinline playsinline
+                     width="1" height="0.552" position="0 0 0"></a-video>
                </a-entity>
                <a-entity id="portfolio-item1" visible=false>
                   <a-image class="clickable" src="#coffeemachine-preview" alpha-test="0.5" position="0 0 0"
@@ -313,9 +312,7 @@
                   height="0.15" width="0.15"></a-image>
             </a-entity>
 
-            <a-entity id="avatar" position="0 0 0">
-               <a-gltf-model src="#heartModel" scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0"></a-gltf-model>
-            </a-entity>
+            <a-gltf-model src="#heartModel" scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0"></a-gltf-model>
 
             <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.42 -0.5 0"
                height="0.15" width="0.15"
