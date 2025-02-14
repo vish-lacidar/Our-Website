@@ -134,21 +134,21 @@
                // text.setAttribute("value", "Happy Valentines Day Mahal");
                // text.setAttribute("visible", true);
                openHeart = false;
-               // slideImage("#portfolio-item1", "center");
-               // slideImage("#portfolio-item2", "center");
-               // slideImage("#portfolio-item3", "center");
-               // slideImage("#portfolio-item4", "center");
-               // slideImage("#portfolio-item5", "center");
-               // slideImage("#portfolio-item6", "center");
+               slideImage("#portfolio-item1", "hide");
+               slideImage("#portfolio-item2", "hide");
+               slideImage("#portfolio-item3", "hide");
+               slideImage("#portfolio-item4", "hide");
+               slideImage("#portfolio-item5", "hide");
+               slideImage("#portfolio-item6", "hide");
             } else {
                // text.setAttribute("visible", false);
                openHeart = true;
-               slideImage("#portfolio-item1", "topcenter");
-               // slideImage("#portfolio-item2", "left");
-               // slideImage("#portfolio-item3", "right");
-               // slideImage("#portfolio-item4", "topright");
-               // slideImage("#portfolio-item5", "topleft");
-               // slideImage("#portfolio-item6", "bottomright");
+               slideImage("#portfolio-item1", "bottomleft");
+               slideImage("#portfolio-item2", "left");
+               slideImage("#portfolio-item3", "right");
+               slideImage("#portfolio-item4", "topright");
+               slideImage("#portfolio-item5", "topleft");
+               slideImage("#portfolio-item6", "bottomright");
             }
          });
          rightButton.addEventListener('click', () => {
@@ -167,7 +167,7 @@
          const portfolio = document.querySelector("#portfolio-panel");
 
          let y = 0;
-         
+
 
          portfolio.setAttribute("visible", true);
          document.querySelector("#paintandquest-video-mp4").play();
@@ -197,22 +197,25 @@
          }, 10);
       }
 
-      const slideImage = (id, position) => {
+      const slideImage = (id, position, done = () => { }) => {
          document.querySelector(id).setAttribute("visible", true);
-         let y = 0;
+         let y = -0.8;
+         let x = 0;
          if (position == "topcenter") {
             const intervalID = setInterval(() => {
                y += 0.008;
-               if (y >= 0.7) {
+               if (y >= 0) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", "0 " + y + " -0.01");
             }, 10);
          } else if (position == "bottomcenter") {
             const intervalID = setInterval(() => {
                y -= 0.008;
-               if (y <= -0.7) {
+               if (y <= -1.3) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", "0 " + y + " -0.01");
             }, 10);
@@ -221,6 +224,7 @@
                x -= 0.008;
                if (x <= -0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " 0 -0.01");
             }, 10);
@@ -229,25 +233,20 @@
                x += 0.008;
                if (x >= 0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " 0 -0.01");
             }, 10);
-         } else if (position == "center") {
-            const intervalID = setInterval(() => {
-               x += 0.008;
-               y += 0.008;
-               if (x >= 0.7) {
-                  document.querySelector(id).setAttribute("visible", false);
-                  clearInterval(intervalID);
-               }
-               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
-            }, 10);
+         } else if (position == "hide") {
+            document.querySelector(id).setAttribute("visible", false);
+            document.querySelector(id).setAttribute("position", "0 0 -0.01");
          } else if (position == "topright") {
             const intervalID = setInterval(() => {
                x += 0.008;
                y += 0.008;
                if (x >= 0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
@@ -257,6 +256,7 @@
                y += 0.008;
                if (x <= -0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
@@ -266,6 +266,7 @@
                y -= 0.008;
                if (x >= 0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
@@ -275,6 +276,7 @@
                y -= 0.008;
                if (x <= -0.7) {
                   clearInterval(intervalID);
+                  done();
                }
                document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
             }, 10);
