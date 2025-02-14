@@ -116,6 +116,8 @@
             rightButton.setAttribute("visible", true);
          }, 600);
 
+         let currentItem = 0;
+
          const showPortfolioItem = (item) => {
             for (let i = 0; i <= 6; i++) {
                document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
@@ -129,24 +131,24 @@
          let openHeart = false;
          heartButton.addEventListener('click', () => {
             if (openHeart) {
-               text.setAttribute("value", "Happy Valentines Day Mahal");
-               text.setAttribute("visible", true);
+               // text.setAttribute("value", "Happy Valentines Day Mahal");
+               // text.setAttribute("visible", true);
                openHeart = false;
-               slideImage("#portfolio-item1", "center");
-               slideImage("#portfolio-item2", "center");
-               slideImage("#portfolio-item3", "center");
-               slideImage("#portfolio-item4", "center");
-               slideImage("#portfolio-item5", "center");
-               slideImage("#portfolio-item6", "center");
+               // slideImage("#portfolio-item1", "center");
+               // slideImage("#portfolio-item2", "center");
+               // slideImage("#portfolio-item3", "center");
+               // slideImage("#portfolio-item4", "center");
+               // slideImage("#portfolio-item5", "center");
+               // slideImage("#portfolio-item6", "center");
             } else {
-               text.setAttribute("visible", false);
+               // text.setAttribute("visible", false);
                openHeart = true;
-               slideImage("#portfolio-item1", "bottomleft");
-               slideImage("#portfolio-item2", "left");
-               slideImage("#portfolio-item3", "right");
-               slideImage("#portfolio-item4", "topright");
-               slideImage("#portfolio-item5", "topleft");
-               slideImage("#portfolio-item6", "bottomright");
+               slideImage("#portfolio-item1", "topcenter");
+               // slideImage("#portfolio-item2", "left");
+               // slideImage("#portfolio-item3", "right");
+               // slideImage("#portfolio-item4", "topright");
+               // slideImage("#portfolio-item5", "topleft");
+               // slideImage("#portfolio-item6", "bottomright");
             }
          });
          rightButton.addEventListener('click', () => {
@@ -165,7 +167,7 @@
          const portfolio = document.querySelector("#portfolio-panel");
 
          let y = 0;
-         let currentItem = 0;
+         
 
          portfolio.setAttribute("visible", true);
          document.querySelector("#paintandquest-video-mp4").play();
@@ -197,6 +199,7 @@
 
       const slideImage = (id, position) => {
          document.querySelector(id).setAttribute("visible", true);
+         let y = 0;
          if (position == "topcenter") {
             const intervalID = setInterval(() => {
                y += 0.008;
