@@ -91,6 +91,7 @@
             }
          }
 
+         document.querySelector("#paintandquest-video-mp4").play();
          const id = setInterval(() => {
             y += 0.008;
             if (y >= 0.7) {
@@ -274,7 +275,7 @@
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/right.png" />
             <img id="paintandquest-preview"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest-preview.png" />
-            <video id="paintandquest-video-mp4" autoplay loop="true" src="./assets/baguio.mp4"></video>
+            <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./assets/baguio.mp4"></video>
             <!-- <video id="paintandquest-video-webm" autoplay="false" loop="true"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.webm"></video> -->
             <img id="coffeemachine-preview" src="./assets/img/1.jpeg" />
