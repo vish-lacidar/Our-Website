@@ -91,8 +91,6 @@
             }
          }
 
-         document.querySelector("#paintandquest-video-mp4").play();
-
          const id = setInterval(() => {
             y += 0.008;
             if (y >= 0.7) {
@@ -270,22 +268,20 @@
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/phone.png" />
             <img id="icon-email"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/email.png" />
-            <img id="icon-play"
-               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/play.png" />
             <img id="icon-left"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/left.png" />
             <img id="icon-right"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/icons/right.png" />
             <img id="paintandquest-preview"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest-preview.png" />
-            <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./assets/baguio.mp4"></video>
-            <video id="paintandquest-video-webm" autoplay="false" loop="true"
-               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.webm"></video>
+            <video id="paintandquest-video-mp4" autoplay loop="true" src="./assets/baguio.mp4"></video>
+            <!-- <video id="paintandquest-video-webm" autoplay="false" loop="true"
+               src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest.webm"></video> -->
             <img id="coffeemachine-preview" src="./assets/img/1.jpeg" />
             <img id="peak-preview" src="./assets/img/2.jpeg" />
 
-            <a-asset-item id="avatarModel"
-               src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.2/examples/image-tracking/assets/card-example/softmind/scene.gltf"></a-asset-item>
+            <a-asset-item id="heartModel"
+               src="./assets/models/heart.gltf"></a-asset-item>
          </a-assets>
 
          <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
@@ -317,6 +313,10 @@
                   height="0.15" width="0.15"></a-image>
             </a-entity>
 
+            <a-entity id="avatar" position="0 0 0">
+               <a-gltf-model src="#heartModel" scale="0.1 0.1 0.1" position="0 0 0" rotation="0 0 0"></a-gltf-model>
+            </a-entity>
+
             <a-image visible=false id="profile-button" class="clickable" src="#icon-profile" position="-0.42 -0.5 0"
                height="0.15" width="0.15"
                animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
@@ -334,7 +334,7 @@
                animation="property: scale; to: 1.2 1.2 1.2; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"></a-image>
 
             <a-text id="text" class="clickable" visible="false" value="" color="black" align="center" width="2"
-               position="0 -0.7 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.5"></a-text>
+               position="0 -0.7 0" geometry="primitive:plane; height: 0.1; width: 2;" material="opacity: 0.8"></a-text>
          </a-entity>
       </a-scene>
    </div>
