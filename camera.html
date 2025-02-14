@@ -3,101 +3,6 @@
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <meta name="apple-mobile-web-app-capable" content="yes">
-   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
-
-   <script>
-      const showInfo = () => {
-         let y = 0;
-         const leftButton = document.querySelector("#left-button");
-         const heartButton = document.querySelector("#heart-button");
-         const rightButton = document.querySelector("#right-button");
-         const text = document.querySelector("#text");
-
-         leftButton.setAttribute("visible", true);
-         setTimeout(() => {
-            heartButton.setAttribute("visible", true);
-         }, 300);
-         setTimeout(() => {
-            rightButton.setAttribute("visible", true);
-         }, 600);
-
-         const showPortfolioItem = (item) => {
-            for (let i = 0; i <= 2; i++) {
-               document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
-            }
-         }
-
-         leftButton.addEventListener('click', () => {
-            currentItem = (currentItem + 1) % 3;
-            showPortfolioItem(currentItem);
-         });
-         rightButton.addEventListener('click', () => {
-            currentItem = (currentItem - 1 + 3) % 3;
-            showPortfolioItem(currentItem);
-         });
-
-         text.addEventListener('click', function (evt) {
-            if (currentTab === 'web') {
-               window.location.href = "https://softmind.tech";
-            }
-         });
-      }
-
-      const showPortfolio = (done) => {
-         const portfolio = document.querySelector("#portfolio-panel");
-
-         let y = 0;
-         let currentItem = 0;
-
-         portfolio.setAttribute("visible", true);
-         document.querySelector("#paintandquest-video-mp4").play();
-
-         const id = setInterval(() => {
-            y += 0.008;
-            if (y >= 0.7) {
-               clearInterval(id);
-               setTimeout(() => {
-                  done();
-               }, 500);
-            }
-            portfolio.setAttribute("position", "0 " + y + " -0.01");
-         }, 10);
-      }
-
-      const showAvatar = (onDone) => {
-         const avatar = document.querySelector("#avatar");
-         let z = -0.3;
-         const id = setInterval(() => {
-            z += 0.008;
-            if (z >= 0.3) {
-               clearInterval(id);
-               onDone();
-            }
-            avatar.setAttribute("position", "0 -0.25 " + z);
-         }, 10);
-      }
-
-      AFRAME.registerComponent('mytarget', {
-         init: function () {
-            this.el.addEventListener('targetFound', event => {
-               console.log("target found");
-               setTimeout(() => {
-                  showPortfolio(() => {
-                     setTimeout(() => {
-                        showInfo();
-                     }, 300);
-                  });
-               }, 300);
-            });
-            this.el.addEventListener('targetLost', event => {
-               console.log("target found");
-            });
-            //this.el.emit('targetFound');
-         }
-      });
-   </script>
-
    <style>
       @font-face {
          font-family: "Creattion";
@@ -192,6 +97,208 @@
          }
       }
    </style>
+   <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+
+   <script>
+      const showInfo = () => {
+         let y = 0;
+         const leftButton = document.querySelector("#left-button");
+         const heartButton = document.querySelector("#heart-button");
+         const rightButton = document.querySelector("#right-button");
+         const text = document.querySelector("#text");
+
+         leftButton.setAttribute("visible", true);
+         setTimeout(() => {
+            heartButton.setAttribute("visible", true);
+         }, 300);
+         setTimeout(() => {
+            rightButton.setAttribute("visible", true);
+         }, 600);
+
+         const showPortfolioItem = (item) => {
+            for (let i = 0; i <= 2; i++) {
+               document.querySelector("#portfolio-item" + i).setAttribute("visible", i === item);
+            }
+         }
+
+         leftButton.addEventListener('click', () => {
+            currentItem = (currentItem + 1) % 3;
+            showPortfolioItem(currentItem);
+         });
+         let openHeart = false;
+         heartButton.addEventListener('click', () => {
+            if (openHeart) {
+               text.setAttribute("value", "Happy Valentines Day Mahal");
+               text.setAttribute("visible", true);
+               openHeart = false;
+               slideImage("#portfolio-item1", "center");
+               slideImage("#portfolio-item2", "center");
+               slideImage("#portfolio-item3", "center");
+               slideImage("#portfolio-item4", "center");
+               slideImage("#portfolio-item5", "center");
+               slideImage("#portfolio-item6", "center");
+            } else {
+               text.setAttribute("visible", false);
+               openHeart = true;
+               slideImage("#portfolio-item1", "bottomleft");
+               slideImage("#portfolio-item2", "left");
+               slideImage("#portfolio-item3", "right");
+               slideImage("#portfolio-item4", "topright");
+               slideImage("#portfolio-item5", "topleft");
+               slideImage("#portfolio-item6", "bottomright");
+            }
+         });
+         rightButton.addEventListener('click', () => {
+            currentItem = (currentItem - 1 + 3) % 3;
+            showPortfolioItem(currentItem);
+         });
+
+         text.addEventListener('click', function (evt) {
+            if (currentTab === 'web') {
+               window.location.href = "https://softmind.tech";
+            }
+         });
+      }
+
+      const showPortfolio = (done) => {
+         const portfolio = document.querySelector("#portfolio-panel");
+
+         let y = 0;
+         let currentItem = 0;
+
+         portfolio.setAttribute("visible", true);
+         document.querySelector("#paintandquest-video-mp4").play();
+
+         const id = setInterval(() => {
+            y += 0.008;
+            if (y >= 0.7) {
+               clearInterval(id);
+               setTimeout(() => {
+                  done();
+               }, 500);
+            }
+            portfolio.setAttribute("position", "0 " + y + " -0.01");
+         }, 10);
+      }
+
+      const showAvatar = (onDone) => {
+         const avatar = document.querySelector("#avatar");
+         let z = -0.3;
+         const id = setInterval(() => {
+            z += 0.008;
+            if (z >= 0.3) {
+               clearInterval(id);
+               onDone();
+            }
+            avatar.setAttribute("position", "0 -0.25 " + z);
+         }, 10);
+      }
+
+      const slideImage = (id, position) => {
+         document.querySelector(id).setAttribute("visible", true);
+         if (position == "topcenter") {
+            const intervalID = setInterval(() => {
+               y += 0.008;
+               if (y >= 0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", "0 " + y + " -0.01");
+            }, 10);
+         } else if (position == "bottomcenter") {
+            const intervalID = setInterval(() => {
+               y -= 0.008;
+               if (y <= -0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", "0 " + y + " -0.01");
+            }, 10);
+         } else if (position == "left") {
+            const intervalID = setInterval(() => {
+               x -= 0.008;
+               if (x <= -0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " 0 -0.01");
+            }, 10);
+         } else if (position == "right") {
+            const intervalID = setInterval(() => {
+               x += 0.008;
+               if (x >= 0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " 0 -0.01");
+            }, 10);
+         } else if (position == "center") {
+            const intervalID = setInterval(() => {
+               x += 0.008;
+               y += 0.008;
+               if (x >= 0.7) {
+                  document.querySelector(id).setAttribute("visible", false);
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
+            }, 10);
+         } else if (position == "topright") {
+            const intervalID = setInterval(() => {
+               x += 0.008;
+               y += 0.008;
+               if (x >= 0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
+            }, 10);
+         } else if (position == "topleft") {
+            const intervalID = setInterval(() => {
+               x -= 0.008;
+               y += 0.008;
+               if (x <= -0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
+            }, 10);
+         } else if (position == "bottomright") {
+            const intervalID = setInterval(() => {
+               x += 0.008;
+               y -= 0.008;
+               if (x >= 0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
+            }, 10);
+         } else if (position == "bottomleft") {
+            const intervalID = setInterval(() => {
+               x -= 0.008;
+               y -= 0.008;
+               if (x <= -0.7) {
+                  clearInterval(intervalID);
+               }
+               document.querySelector(id).setAttribute("position", x + " " + y + " -0.01");
+            }, 10);
+         }
+      }
+
+      AFRAME.registerComponent('mytarget', {
+         init: function () {
+            this.el.addEventListener('targetFound', event => {
+               console.log("target found");
+               setTimeout(() => {
+                  showPortfolio(() => {
+                     setTimeout(() => {
+                        showInfo();
+                     }, 300);
+                  });
+               }, 300);
+            });
+            this.el.addEventListener('targetLost', event => {
+               console.log("target found");
+            });
+            //this.el.emit('targetFound');
+         }
+      });
+   </script>
+
+
 </head>
 
 <body>
@@ -214,8 +321,12 @@
             <img id="paintandquest-preview"
                src="https://hiukim.github.io/mind-ar-js-doc/samples/assets/card-example/portfolio/paintandquest-preview.png" />
             <video id="paintandquest-video-mp4" autoplay="false" loop="true" src="./assets/baguio.mp4"></video>
-            <img id="coffeemachine-preview" src="./assets/img/1.jpeg" />
-            <img id="peak-preview" src="./assets/img/2.jpeg" />
+            <img id="image-1" src="./assets/img/1.jpeg" />
+            <img id="image-2" src="./assets/img/2.jpeg" />
+            <img id="image-3" src="./assets/img/3.jpg" />
+            <img id="image-4" src="./assets/img/4.jpeg" />
+            <img id="image-5" src="./assets/img/5.jpg" />
+            <img id="image-6" src="./assets/img/6.jpg" />
          </a-assets>
 
          <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;"
@@ -231,13 +342,27 @@
                      width="1" height="0.552" position="0 0 0"></a-video>
                </a-entity>
                <a-entity id="portfolio-item1" visible=false>
-                  <a-image class="clickable" src="#coffeemachine-preview" alpha-test="0.5" position="0 0 0"
-                     height="0.552" width="1">
+                  <a-image class="clickable" src="#image-1" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
                   </a-image>
                </a-entity>
                <a-entity id="portfolio-item2" visible=false>
-                  <a-image class="clickable" src="#peak-preview" alpha-test="0.5" position="0 0 0" height="0.552"
-                     width="1">
+                  <a-image class="clickable" src="#image-2" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                  </a-image>
+               </a-entity>
+               <a-entity id="portfolio-item3" visible=false>
+                  <a-image class="clickable" src="#image-3" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                  </a-image>
+               </a-entity>
+               <a-entity id="portfolio-item4" visible=false>
+                  <a-image class="clickable" src="#image-4" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                  </a-image>
+               </a-entity>
+               <a-entity id="portfolio-item5" visible=false>
+                  <a-image class="clickable" src="#image-5" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
+                  </a-image>
+               </a-entity>
+               <a-entity id="portfolio-item6" visible=false>
+                  <a-image class="clickable" src="#image-6" alpha-test="0.5" position="0 0 0" height="0.552" width="1">
                   </a-image>
                </a-entity>
             </a-entity>
